@@ -18,16 +18,26 @@
     z-index: -1;
 }
 .nav__content__container {
-    composes: nav__background;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    min-height: 100px;
+    width: 100%;
+    padding: 2vh 10vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: fit-content !important;
     background-color: unset;
+    text-justify: auto;
+    font: bold 1.5rem 'Roboto', sans-serif;
     z-index: unset;
 }
 .nav__background > p {
     all: unset;
     z-index: 1;
     height: fit-content;
-    text-justify: auto;
-    font: bold 1.5rem 'Roboto', sans-serif;
+
     color: #fff;
 }
 .nav__switch__container {
