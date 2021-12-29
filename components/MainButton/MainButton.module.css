@@ -1,0 +1,28 @@
+.mainButton {
+    all: unset;
+    background: #0070f3;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 7px;
+    font-weight: bold;
+}
+.imageMainButton {
+    composes: mainButton;
+    max-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+.imageMainButton > img {
+    all: unset;
+    object-fit: scale-down;
+    max-width: 35px;
+
+}
+.imageMainButton__Image {
+    position: relative;
+    margin-right: 10px;
+}
