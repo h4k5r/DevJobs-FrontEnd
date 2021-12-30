@@ -72,6 +72,10 @@
     font-weight: bolder;
     color: var(--color-primary);
 }
+.loadMore__button {
+    display: block;
+    margin: 0  auto ;
+}
 @media (min-width: 768px){
     .jobCard {
         width: 40vw;

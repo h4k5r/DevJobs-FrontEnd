@@ -1,0 +1,219 @@
+.company {
+    display: flex;
+    flex-direction: column;
+    margin: 0 5vw;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.1);
+}
+
+.company__logoContainer {
+    max-width: 15vw;
+    position: relative;
+    margin: -10% auto 0 auto;
+}
+
+.company__contentContainer {
+    flex-grow: 0.8;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+}
+
+.company__contentSubContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    flex-grow: 1;
+    height: 100%;
+}
+
+.company__contentContainer__title {
+    all: unset;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 5% 0;
+}
+
+.company__contentContainer__link {
+    all: unset;
+    font-weight: lighter;
+    font-size: 0.8rem;
+    margin: 5% 0;
+}
+
+.company__Button {
+    color: var(--color-primary);
+    background-color: #eaebff;
+    height: fit-content;
+    width: fit-content;
+    font-size: 0.5rem;
+    margin: 3% 0;
+}
+
+.job {
+    margin: 5vh 5vw 0 5vw;
+    background-color: white;
+    padding: 5vh 5vw;
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+
+}
+
+.job__head {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+}
+
+.job__head__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-grow: 1;
+}
+
+.job__head__content > p {
+    margin: 0.5rem 0;
+}
+
+.job__head__content__title {
+    all: unset;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.job__head__content__timeAndType {
+    all: unset;
+    font-weight: lighter;
+    font-size: 0.75rem;
+}
+
+.job__head__content__location {
+    all: unset;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.job__head__button {
+    margin-top: 1rem;
+}
+
+.job__body {
+
+}
+.job__body__requirementTitle {
+    all: unset;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+.job__body__requirement {
+
+}
+.job__body__whatYouWillDoTitle {
+    all: unset;
+    font-size: 1rem;
+    margin: 1rem 0;
+}
+.job__body__whatYouWillDo {
+
+}
+
+@media (min-width: 576px) {
+    .company__contentContainer__title {
+        font-size: 1.3rem;
+    }
+
+    .company__contentContainer__link {
+        font-size: 0.9rem;
+    }
+
+    .company__Button {
+        font-size: 0.75rem;
+    }
+
+}
+
+@media (min-width: 768px) {
+    .company {
+        flex-direction: row;
+        position: unset;
+    }
+
+    .company {
+        margin: 0 10vw;
+    }
+
+    .company__contentContainer {
+        flex-direction: row;
+        margin-right: 5vw;
+
+    }
+
+    .company__logoContainer {
+        position: unset;
+        margin: unset;
+    }
+
+    .company__contentSubContainer {
+        padding: 0 0 0 10%;
+        text-align: unset;
+    }
+
+    .company__contentContainer__title {
+        font-size: 1.5rem;
+        margin: unset;
+    }
+
+    .company__contentContainer__link {
+        font-size: 1rem;
+        margin: unset;
+    }
+
+    .company__Button {
+        font-size: unset;
+    }
+
+    .job {
+        margin: 5vh 10vw 0 10vw;
+    }
+
+    .job__head {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+@media (min-width: 1024px) {
+    .company {
+        margin: 0 15vw;
+    }
+
+    .company__contentContainer__title {
+        font-size: 2.2rem;
+    }
+
+    .company__contentContainer__link {
+        font-size: 1.3rem;
+    }
+
+    .job {
+        margin: 5vh 15vw 0 15vw;
+    }
+
+    .job__head__content__title {
+        font-size: 2.2rem;
+    }
+
+    .job__head__content__timeAndType {
+        font-size: 1.3rem;
+    }
+
+    .job__head__content__location {
+        font-size: 1.3rem;
+    }
+}

@@ -4,24 +4,28 @@ import MainButton, {ImageMainButton} from "../MainButton/MainButton";
 import Image from "next/image";
 import search from '../../Images/ant-design_search-outlined.svg'
 import filter from '../../Images/dashicons_filter.svg'
+import {router} from "next/client";
 
 
-const NavBar:React.FC<{}> = () => {
+const NavBar:React.FC<{showSearchBar:boolean}> = (props) => {
     const [isOn,setIsOn] = useState<boolean>(false);
     const onSwitchClick = () => {
         setIsOn(prevState => !prevState);
+    };
+    const onLogoClick = () => {
+        router.replace('/');
     };
     return (<>
         <div className={classes.nav__Container}>
             <div className={classes.nav__background}>
             </div>
             <div className={classes.nav__content__container}>
-                <p>DevJobs</p>
+                <p onClick={onLogoClick}>DevJobs</p>
                 <div className={classes.nav__switch__container} onClick={onSwitchClick}>
                     <span className={isOn?classes.nav__switch__container__switchRight:""}/>
                 </div>
             </div>
-            <SearchBar/>
+            {props.showSearchBar && <SearchBar/>}
         </div>
 
     </>);

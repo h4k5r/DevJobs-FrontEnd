@@ -5,7 +5,7 @@ import Jobs from "../components/Jobs/Jobs";
 const Home: NextPage = () => {
     return (
         <div>
-            <NavBar/>
+            <NavBar showSearchBar={true}/>
             <Jobs/>
         </div>
     )

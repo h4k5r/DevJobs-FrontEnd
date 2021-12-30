@@ -4,6 +4,7 @@
     height: 20vh;
     min-height: 150px;
 }
+
 .nav__background {
     display: flex;
     justify-content: space-between;
@@ -17,6 +18,7 @@
     left: 0;
     z-index: -1;
 }
+
 .nav__content__container {
     display: flex;
     justify-content: space-between;
@@ -33,13 +35,13 @@
     font: bold 1.5rem 'Roboto', sans-serif;
     z-index: unset;
 }
-.nav__background > p {
-    all: unset;
-    z-index: 1;
-    height: fit-content;
 
+.nav__content__container > p {
+    all: unset;
+    height: fit-content;
     color: #fff;
 }
+
 .nav__switch__container {
     z-index: 1;
     display: flex;
@@ -51,6 +53,7 @@
     background-color: white;
     border-radius: 100vw;
 }
+
 .nav__switch__container > span {
 
     height: 15px;
@@ -58,10 +61,12 @@
     border-radius: 100vw;
     background-color: var(--color-primary);
 }
+
 .nav__switch__container__switchRight {
     margin-left: auto;
     transition: all 0.3s ease;
 }
+
 .searchBar {
     display: flex;
     align-items: center;
@@ -71,69 +76,84 @@
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 25px var(--color-shadow);
-    margin: 0 5vw;
+    margin: 0 5vw 2vh 5vw;
     flex-grow: 1;
     align-self: flex-end;
 }
+
 .searchBar__textInput__container {
     flex-grow: 1;
     height: 100%;
     max-width: 100%;
     margin-right: 5%;
 }
+
 .searchBar__textInput {
     all: unset;
 }
+
 .searchBar__SearchButton {
     display: none !important;
 }
+
 .searchBar__SearchImageButton {
-    margin: 0  0 1vw 0;
+    margin: 0 0 1vw 0;
 }
+
 .searchBar__filterButton {
     all: unset;
     margin: 0 1vw;
 }
+
 .searchBar__location {
     all: unset;
     display: none;
-    border-right: grey solid 1px ;
+    border-right: grey solid 1px;
     margin-right: 5%;
 }
+
 .searchBar__checkbox {
     display: none;
 }
+
 .buttonsContainer {
     display: flex;
     justify-content: space-between;
     flex-grow: 0.1;
 }
+
 @media (min-width: 768px) {
     .searchBar__textInput__container {
         flex-grow: 0.30;
     }
+
     .searchBar__textInput {
-        border-right: grey solid 1px ;
+        border-right: grey solid 1px;
         width: 100%;
     }
+
     .searchBar__location {
         display: unset;
         flex-grow: 0.30;
 
     }
+
     .searchBar__checkbox {
         display: flex;
         min-width: fit-content;
         flex-grow: 0.30;
 
     }
+
     .searchBar__SearchButton {
-        display: unset!important;
+        display: unset !important;
 
     }
+
     .searchBar__SearchImageButton {
         display: none !important;
     }
+
     .searchBar__filterButton {
         display: none !important;
     }
