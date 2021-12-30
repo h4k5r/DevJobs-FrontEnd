@@ -4,11 +4,12 @@ import MainButton, {ImageMainButton} from "../MainButton/MainButton";
 import Image from "next/image";
 import search from '../../Images/ant-design_search-outlined.svg'
 import filter from '../../Images/dashicons_filter.svg'
-import {router} from "next/client";
+import {useRouter} from "next/router";
 
 
 const NavBar:React.FC<{showSearchBar:boolean}> = (props) => {
     const [isOn,setIsOn] = useState<boolean>(false);
+    const router = useRouter();
     const onSwitchClick = () => {
         setIsOn(prevState => !prevState);
     };
