@@ -8,7 +8,7 @@ function MyApp({Component, pageProps}: AppProps) {
     return <>
         <Provider store={Store}>
             <div className={'app'}>
-                <NavBar showSearchBar={true}/>
+                <NavBar/>
                 <div className={'main'}>
                     <Component {...pageProps} />
                 </div>
