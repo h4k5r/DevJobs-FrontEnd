@@ -1,0 +1,17 @@
+.input__container {
+    display: flex;
+    flex-direction: column;
+    margin: 1vh 0;
+}
+.input {
+    height: 30px;
+    border: unset;
+    border-bottom: var(--color-primary) 1px solid;
+    margin:2vh 0
+}
+.input::placeholder {
+    color: grey;
+}
+.input:focus {
+    outline: none;
+}

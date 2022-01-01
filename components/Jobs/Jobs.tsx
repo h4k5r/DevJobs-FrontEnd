@@ -23,30 +23,28 @@ const Jobs: React.FC<{}> = () => {
                 setJobs(data.jobs);
             })
             .catch(err => console.log(err))
-    },[])
+    }, [])
     const onLoadMoreClickHandler = () => {
         // http://localhost:{{port}}/jobs?start=1&limit=10
         fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/jobs?start=${jobs.length}&limit=10`)
             .then(res => res.json())
             .then(data => {
-                if(data.success) {
+                if (data.success) {
                     setJobs(data.jobs);
                 }
             })
-            .catch(_ => {})
+            .catch(_ => {
+            })
     }
-    // let Jobs = []
-    // for (let i: number = 0; i < 10; i++) {
-    //     Jobs.push(<JobCard key={i}/>)
-    // }
     return (<>
-        <div className={classes.jobs__container}>
-            {jobs.map(value => {
-                return <JobCard key={value.id} title={value.title} id={value.id} company={value.company}
-                                type={value.type} location={value.location} time={value.time}/>
-            })}
-        </div>
-            <MainButton text={"Load More"} onClickHandler={onLoadMoreClickHandler} classes={[classes.loadMore__button]}/>
+            <div className={classes.jobs__container}>
+                {jobs.map(value => {
+                    return <JobCard key={value.id} title={value.title} id={value.id} company={value.company}
+                                    type={value.type} location={value.location} time={value.time}/>
+                })}
+            </div>
+            <MainButton text={"Load More"} onClickHandler={onLoadMoreClickHandler}
+                        classes={[classes.loadMore__button]}/>
 
         </>
     );

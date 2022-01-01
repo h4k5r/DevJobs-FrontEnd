@@ -6,9 +6,10 @@ import {JobInterface} from "../../Interface/Interfaces";
 import logo from "../../Images/dashicons_filter.svg"
 import MainButton from "../../components/MainButton/MainButton";
 import classes from './job.module.css'
-import NavBar from "../../components/NavBar/NavBar";
+import useHideSearch from "../../Hooks/useHideSearch";
 
 const ViewJob: NextPage = () => {
+    useHideSearch();
     const router = useRouter();
     const {id} = router.query;
     // console.log(id)
@@ -60,8 +61,7 @@ const ViewJob: NextPage = () => {
             })
     }, [id]);
     return (<>
-            <NavBar showSearchBar={false}/>
-            <div>
+            <div className={classes.overAllContainer}>
                 <div className={classes.company}>
                     <div className={classes.company__logoContainer}>
                         <Image src={job.company_logo} height={150} width={150} layout={"intrinsic"} alt={job.company}/>

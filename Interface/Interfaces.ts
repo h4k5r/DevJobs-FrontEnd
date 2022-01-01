@@ -13,3 +13,7 @@ export interface JobInterface {
     salary: string;
     created_at: string;
 }
+export interface menuItem {
+    title: string;
+    url: string;
+}

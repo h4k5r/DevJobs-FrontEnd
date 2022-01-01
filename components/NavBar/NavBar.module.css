@@ -2,6 +2,7 @@
     display: flex;
     position: relative;
     height: 20vh;
+    max-height: 20vh;
     min-height: 150px;
 }
 
@@ -18,6 +19,17 @@
     left: 0;
     z-index: -1;
 }
+.nav__Container__noSearchBr {
+    min-height: unset;
+    max-height: unset;
+    height: fit-content;
+}
+.nav__background__noSearchBr {
+    min-height: unset;
+    max-height: unset;
+    height: 100%;
+}
+
 
 .nav__content__container {
     display: flex;
@@ -35,11 +47,30 @@
     font: bold 1.5rem 'Roboto', sans-serif;
     z-index: unset;
 }
-
+.nav__content__container__noSearchBr {
+    position: unset;
+    min-height: unset;
+}
 .nav__content__container > p {
     all: unset;
     height: fit-content;
     color: #fff;
+}
+
+.nav__right__container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: fit-content;
+    width: 100%;
+}
+
+.nav__buttons__container {
+    display: none;
+    width: 100%;
+    justify-content: flex-end;
+    height: fit-content;
+    font-size: 1rem;
 }
 
 .nav__switch__container {
@@ -55,7 +86,6 @@
 }
 
 .nav__switch__container > span {
-
     height: 15px;
     width: 15px;
     border-radius: 100vw;
@@ -65,6 +95,75 @@
 .nav__switch__container__switchRight {
     margin-left: auto;
     transition: all 0.3s ease;
+}
+
+.nav__Button {
+    all: unset;
+    margin: 0 10px;
+}
+
+.burgerMenu {
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-left: 10%;
+}
+
+.burgerLine {
+    height: 5px;
+    width: 30px;
+    background-color: white;
+}
+
+.sideMenu__container {
+    /*margin-top: -100vh;*/
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 50;
+}
+
+.sideMenu__modal {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.53);
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.sideMenu {
+    position: sticky;
+    padding: 5% 10%;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100vh;
+    background-color: #0070f3;
+    text-align: center;
+    z-index: 50;
+}
+
+.sideMenu > p {
+    color: white;
+    font-size: 1.5rem;
+    margin-top: 10%;
+}
+
+.sideMenu__menu__container {
+    list-style: none;
+    padding-left: 0;
+
+}
+
+.sideMenu__menu__container > li {
+    padding: 10px 0;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
 }
 
 .searchBar {
@@ -156,5 +255,17 @@
 
     .searchBar__filterButton {
         display: none !important;
+    }
+
+    .nav__buttons__container {
+        display: flex;
+    }
+
+    .burgerMenu {
+        display: none;
+    }
+
+    .sideMenu__container {
+        display: none;
     }
 }
