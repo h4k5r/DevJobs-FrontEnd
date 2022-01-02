@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 1vh 0;
+}
+.textArea {
+    height: 30px;
+    max-width: 100%;
+    border: unset;
+    border-bottom: var(--color-primary) 1px solid;
+    margin:2vh 0
+}
+.textArea:focus {
+    outline: none;
+}
+.textArea::placeholder {
+    color: grey;
+}

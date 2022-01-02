@@ -4,18 +4,22 @@ import {CombineClasses} from "../../Utils/Uitls";
 
 const Input: React.FC<{
     type: string,
-    placeholder: string,
+    placeholder?: string,
     label: string,
+    value?: string,
     classes: string[],
+    containerClasses?: string[],
     ref?: React.RefObject<HTMLInputElement>
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
     onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void
+    onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void
 }> = (props) => {
+    const {type, placeholder, label, value, containerClasses = [], ref, onChange, onBlur, onFocus,classes:inputClasses} = props;
     return (
-        <div className={classes.input__container}>
-            <label>{props.label}</label>
-            <input type={props.type} className={CombineClasses(...props.classes, classes.input)}
-                   placeholder={props.placeholder} ref={props.ref} onChange={props.onChange} onBlur={props.onBlur}/>
+        <div className={CombineClasses(classes.input__container,...containerClasses )}>
+            <label>{label}</label>
+            <input type={type} className={CombineClasses(...inputClasses, classes.input)} value={value}
+                   placeholder={placeholder} ref={ref} onChange={onChange} onBlur={onBlur} onFocus={onFocus}/>
         </div>
     );
 };

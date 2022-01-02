@@ -22,6 +22,9 @@ const AuthSlice = createSlice({
         setIsEmployer: (state, action) => {
             state.isEmployer = action.payload;
         },
+        removeIsEmployer: (state) => {
+            state.isEmployer = false;
+        },
     },
 })
 
@@ -49,8 +52,10 @@ export const EmailLogin = (
         const data = await response.json();
         if (response.status === 200 && data.success) {
             dispatch(AuthSlice.actions.setToken(data.token));
+            localStorage.setItem("token", data.token);
             if (userType === "employer") {
                 dispatch(AuthSlice.actions.setIsEmployer(true));
+                localStorage.setItem("isEmployer", "true");
             }
             successHandler();
         } else {
@@ -64,5 +69,7 @@ export const Logout = () => {
     return async (dispatch: Dispatch) => {
         dispatch(AuthSlice.actions.removeToken());
         dispatch(AuthSlice.actions.setIsEmployer(false));
+        localStorage.removeItem('token');
+        localStorage.removeItem('isEmployer');
     }
 }

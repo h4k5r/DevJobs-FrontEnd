@@ -23,7 +23,7 @@ a {
 }
 .main {
     flex-grow: 1;
-    max-height: 80vh;
+    max-height: available;
     overflow-y: scroll;
 }
 

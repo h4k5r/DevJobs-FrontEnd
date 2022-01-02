@@ -42,6 +42,30 @@ const Jobs: React.FC<{}> = () => {
                     return <JobCard key={value.id} title={value.title} id={value.id} company={value.company}
                                     type={value.type} location={value.location} time={value.time}/>
                 })}
+                {jobs.map(value => {
+                    return <JobCard key={value.id} title={value.title} id={value.id} company={value.company}
+                                    type={value.type} location={value.location} time={value.time}/>
+                })}
+                {jobs.map(value => {
+                    return <JobCard key={value.id} title={value.title} id={value.id} company={value.company}
+                                    type={value.type} location={value.location} time={value.time}/>
+                })}
+                {jobs.map(value => {
+                    return <JobCard key={value.id} title={value.title} id={value.id} company={value.company}
+                                    type={value.type} location={value.location} time={value.time}/>
+                })}
+                {jobs.map(value => {
+                    return <JobCard key={value.id} title={value.title} id={value.id} company={value.company}
+                                    type={value.type} location={value.location} time={value.time}/>
+                })}
+                {jobs.map(value => {
+                    return <JobCard key={value.id} title={value.title} id={value.id} company={value.company}
+                                    type={value.type} location={value.location} time={value.time}/>
+                })}
+                {jobs.map(value => {
+                    return <JobCard key={value.id} title={value.title} id={value.id} company={value.company}
+                                    type={value.type} location={value.location} time={value.time}/>
+                })}
             </div>
             <MainButton text={"Load More"} onClickHandler={onLoadMoreClickHandler}
                         classes={[classes.loadMore__button]}/>

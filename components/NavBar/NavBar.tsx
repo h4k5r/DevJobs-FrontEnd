@@ -12,6 +12,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../Store";
 import {UIActions} from "../../Store/UI-Slice";
 import {CombineClasses} from "../../Utils/Uitls";
+import useTokenValidator from "../../Hooks/useTokenValidator";
 
 
 const NavBar: React.FC<{}> = () => {
@@ -30,15 +31,32 @@ const NavBar: React.FC<{}> = () => {
     };
     const unauthenticatedMenuItems: menuItem[] = [
         {
-            title: 'Applicant Login',
-            url: '/applicant/login',
-        },
-        {
             title: 'Employer Login',
             url: '/employer/login',
         }
     ];
-    const employerMenu: menuItem[] = [];
+    const employerMenu: menuItem[] = [
+        {
+            title: 'Post a Job',
+            url: '/employer/postJob',
+        },
+        {
+            title: 'My Jobs',
+            url: '/employer/jobs',
+        },
+        // {
+        //     title: 'My Applicants',
+        //     url: '/employer/applicants',
+        // },
+        {
+            title: 'My Profile',
+            url: '/employer/profile',
+        },
+        {
+            title: 'Logout',
+            url: '/logout',
+        }
+    ];
     const applicantMenu: menuItem[] = [];
     const onBurgerClick = () => {
         dispatch(UIActions.toggleSideMenu());

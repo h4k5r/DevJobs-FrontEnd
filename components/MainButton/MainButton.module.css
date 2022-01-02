@@ -7,6 +7,10 @@
     border-radius: 7px;
     font-weight: bold;
 }
+.mainButton:disabled {
+    background: #ccc !important;
+    color: #333 !important;
+}
 .imageMainButton {
     composes: mainButton;
     max-height: 40px;

@@ -52,8 +52,10 @@ const SignUpForm: React.FC<{ userType: 'employer' | 'applicant' }> = (props) => 
             setError('');
         }
     };
-    const onSignUpClickHandler = async () => {
-        const url = `process.env.NEXT_PUBLIC_BACKEND_URL/${props.userType}/signup`;
+    const onSignUpClickHandler = async (e:React.FormEvent) => {
+        e.preventDefault()
+        const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/${props.userType}/auth/signup`;
+        console.log(url);
         let data = null;
         if (props.userType === "employer") {
             if (ValidateEmail(email) &&

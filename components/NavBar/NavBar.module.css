@@ -10,8 +10,7 @@
     display: flex;
     justify-content: space-between;
     background-color: var(--color-primary);
-    height: 17vh;
-    min-height: 100px;
+    height: 100%;
     width: 100%;
     padding: 2vh 10vw;
     position: absolute;
@@ -175,7 +174,8 @@
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 25px var(--color-shadow);
-    margin: 0 5vw 2vh 5vw;
+    margin: 0 5vw -5vh 5vw;
+    z-index: 49;
     flex-grow: 1;
     align-self: flex-end;
 }

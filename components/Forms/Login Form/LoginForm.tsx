@@ -63,9 +63,9 @@ const LoginForm: React.FC<{ userType: 'employer' | 'applicant' }> = (props) => {
                    onChange={onEmailChange} onBlur={onEmailBlur}/>
             <Input type={'password'} classes={[classes.input]} placeholder={'Enter password'} label={'Password'}
                    onChange={onPasswordChange} onBlur={onPasswordBlur}/>
-            <MainButton text={'Login'} onClickHandler={onLoginClick} classes={[classes.form__button]}/>
+            <MainButton text={'Login'} onClickHandler={onLoginClick} classes={[classes.form__button]} disabled={!!error}/>
             <MainButton text={'New User? Click Here to create a new account'} onClickHandler={onSignUpClick}
-                        classes={[classes.form__button, classes.signUp__button]}/>
+                        classes={[classes.form__button, classes.signUp__button]} />
             {error && <p className={classes.error}>{error}</p>}
         </form>
     );
