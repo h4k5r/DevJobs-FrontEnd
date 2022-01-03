@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import classes from "./Input.module.css";
 import {CombineClasses} from "../../Utils/Uitls";
 
@@ -14,12 +14,22 @@ const Input: React.FC<{
     onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void
     onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void
 }> = (props) => {
-    const {type, placeholder, label,value, containerClasses = [], inputRef, onChange, onBlur, onFocus,classes:inputClasses} = props;
-    const [valueState, setValueState] = useState(value);
+    const {
+        type,
+        placeholder,
+        label,
+        value,
+        containerClasses = [],
+        inputRef,
+        onChange,
+        onBlur,
+        onFocus,
+        classes: inputClasses
+    } = props;
     return (
-        <div className={CombineClasses(classes.input__container,...containerClasses )}>
+        <div className={CombineClasses(classes.input__container, ...containerClasses)}>
             <label>{label}</label>
-            <input type={type} className={CombineClasses(...inputClasses, classes.input)} value={valueState}
+            <input type={type} className={CombineClasses(...inputClasses, classes.input)} value={value}
                    placeholder={placeholder} ref={inputRef} onChange={onChange} onBlur={onBlur} onFocus={onFocus}/>
         </div>
     );
