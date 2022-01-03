@@ -7,7 +7,7 @@ const profileVerifyHandler = async (req: NextApiRequest, res: NextApiResponse) =
     });
     const data = await response.json();
     if (data.success) {
-        res.status(200).json({
+        return res.status(200).json({
             success: true,
             message: data.message
         });
