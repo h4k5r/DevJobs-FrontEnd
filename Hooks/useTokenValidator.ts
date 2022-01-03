@@ -9,12 +9,11 @@ const UseTokenValidator = () => {
         const token = localStorage.getItem('token');
         const isEmployerString = localStorage.getItem('isEmployer');
         const isEmployer = parseStringToBoolean(isEmployerString ? isEmployerString : "");
-        console.log(token,isEmployer);
         let url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/applicant/auth/validateToken`;
         if (isEmployer) {
             url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/employer/auth/validateToken`
         }
-        fetch(url,{
+        fetch(url, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
@@ -23,13 +22,11 @@ const UseTokenValidator = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
-                    console.log("token is valid");
                     dispatch(AuthActions.setToken(token));
                     if (isEmployer) {
                         dispatch(AuthActions.setIsEmployer(true));
                     }
                 } else {
-                    console.log("token is invalid");
                     dispatch(Logout());
                 }
             })

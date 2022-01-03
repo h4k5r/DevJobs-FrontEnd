@@ -1,10 +1,13 @@
 import {NextPage} from "next";
+import useHideSearch from "../../Hooks/useHideSearch";
+import EmployerProfileForm from "../../components/Forms/EmployerProfile Form/EmployerProfileForm";
+import useTokenValidator from "../../Hooks/useTokenValidator";
 
 const Profile:NextPage = () => {
+    useHideSearch()
+    useTokenValidator()
     return (
-        <div>
-            <h1>Profile</h1>
-        </div>
+        <EmployerProfileForm/>
     )
 }
 export default Profile;

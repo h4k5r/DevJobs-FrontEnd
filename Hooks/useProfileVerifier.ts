@@ -1,6 +1,5 @@
 import {useRouter} from "next/router";
-import {parseStringToBoolean} from "../Utils/Uitls";
-import {AuthActions, Logout} from "../Store/Auth-Slice";
+import {Logout} from "../Store/Auth-Slice";
 import {useDispatch} from "react-redux";
 
 const UseProfileVerifier = () => {
