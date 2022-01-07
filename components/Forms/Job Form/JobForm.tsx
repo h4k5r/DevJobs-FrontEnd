@@ -6,9 +6,10 @@ import TextArea from "../../TextArea/TextArea";
 import {ValidateUrl} from "../../../Utils/Uitls";
 import useInput from "../../../Hooks/useInput";
 import useTokenValidator from "../../../Hooks/useTokenValidator";
-import {router} from "next/client";
+import {useRouter} from "next/router";
 
 const JobForm: React.FC<{ mode: 'new' | 'edit', id?: string }> = (props) => {
+    const router = useRouter()
     useTokenValidator();
     const {mode, id} = props;
     const titleRef = useRef<HTMLInputElement>(null) as React.MutableRefObject<HTMLInputElement>;
