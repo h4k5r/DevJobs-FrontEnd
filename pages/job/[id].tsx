@@ -62,19 +62,19 @@ const ViewJob: NextPage = () => {
     }, [id]);
     return (<>
             <div className={classes.overAllContainer}>
-                <div className={classes.company}>
-                    <div className={classes.company__logoContainer}>
-                        <Image src={job.company_logo} height={150} width={150} layout={"intrinsic"} alt={job.company}/>
-                    </div>
-                    <div className={classes.company__contentContainer}>
-                        <div className={classes.company__contentSubContainer}>
-                            <p className={classes.company__contentContainer__title}>{job.company}</p>
-                            <p className={classes.company__contentContainer__link}>{job.company_url}</p>
-                        </div>
-                        <MainButton text={'Company Site'} onClickHandler={() => {
-                        }} classes={[classes.company__Button]}/>
-                    </div>
-                </div>
+                {/*<div className={classes.company}>*/}
+                {/*    <div className={classes.company__logoContainer}>*/}
+                {/*        <Image src={job.company_logo} height={150} width={150} layout={"intrinsic"} alt={job.company}/>*/}
+                {/*    </div>*/}
+                {/*    <div className={classes.company__contentContainer}>*/}
+                {/*        <div className={classes.company__contentSubContainer}>*/}
+                {/*            <p className={classes.company__contentContainer__title}>{job.company}</p>*/}
+                {/*            <p className={classes.company__contentContainer__link}>{job.company_url}</p>*/}
+                {/*        </div>*/}
+                {/*        <MainButton text={'Company Site'} onClickHandler={() => {*/}
+                {/*        }} classes={[classes.company__Button]}/>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
                 <div className={classes.job}>
                     <div className={classes.job__head}>
                         <div className={classes.job__head__content}>
@@ -83,6 +83,7 @@ const ViewJob: NextPage = () => {
                             <p className={classes.job__head__content__location}>{job.location}</p>
                         </div>
                         <MainButton text={'Apply Now'} onClickHandler={() => {
+                            window.location.href = job.url
                         }} classes={[classes.job__head__button]}/>
                     </div>
                     <div className={classes.job__body}>

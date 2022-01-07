@@ -1,5 +1,5 @@
 import {NextPage} from "next";
-import PostJobForm from "../../components/Forms/PostJob Form/PostJobForm";
+import JobForm from "../../components/Forms/Job Form/JobForm";
 import {useSelector} from "react-redux";
 import {RootState} from "../../Store";
 import {useEffect} from "react";
@@ -22,7 +22,7 @@ const PostJob:NextPage = () => {
 
     return (
         <div>
-            <PostJobForm/>
+            <JobForm mode={"new"}/>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef} from "react";
 import {useRouter} from "next/router";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,7 +12,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../Store";
 import {UIActions} from "../../Store/UI-Slice";
 import {CombineClasses} from "../../Utils/Uitls";
-import useTokenValidator from "../../Hooks/useTokenValidator";
+import {JobActions} from "../../Store/Jobs-slice";
 
 
 const NavBar: React.FC<{}> = () => {
@@ -27,6 +27,10 @@ const NavBar: React.FC<{}> = () => {
         dispatch(UIActions.toggleDarkMode());
     };
     const onLogoClick = () => {
+        if(isEmployer) {
+            router.replace('/employer/jobs');
+            return
+        }
         router.replace('/');
     };
     const unauthenticatedMenuItems: menuItem[] = [
@@ -37,12 +41,12 @@ const NavBar: React.FC<{}> = () => {
     ];
     const employerMenu: menuItem[] = [
         {
-            title: 'Post a Job',
-            url: '/employer/postJob',
-        },
-        {
             title: 'My Jobs',
             url: '/employer/jobs',
+        },
+        {
+            title: 'Post a Job',
+            url: '/employer/postJob',
         },
         // {
         //     title: 'My Applicants',
@@ -101,16 +105,40 @@ const NavBar: React.FC<{}> = () => {
 export default NavBar;
 
 const SearchBar: React.FC<{}> = () => {
+    const dispatch = useDispatch();
+
+    const titleRef = useRef<HTMLInputElement>(null);
+    const locationRef = useRef<HTMLInputElement>(null);
+    const fullTimeRef = useRef<HTMLInputElement>(null);
     const onSearchClick = () => {
-        console.log("Search Clicked");
+        (async () => {
+            const title = titleRef.current!.value.trim();
+            const location = locationRef.current!.value.trim();
+            const fullTime = fullTimeRef.current!.checked;
+            if (title === "" && location === "" && !fullTime) {
+                console.log("No search parameters")
+                return;
+            }
+            console.log("Searching for jobs");
+                // ?title=${title}&location=${location}&fullTime=${fullTime}
+            const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/jobs/search`);
+            console.log(response);
+
+            const data = await response.json();
+            console.log('executed')
+            if(data.success) {
+                dispatch(JobActions.setJobs(data.jobs));
+                //send data to redux
+            }
+        })()
     }
     return (<div className={classes.searchBar}>
         <div className={classes.searchBar__textInput__container}>
-            <input type={"text"} placeholder={"Filter by title"} className={classes.searchBar__textInput}/>
+            <input type={"text"} placeholder={"Filter by title"} className={classes.searchBar__textInput} ref={titleRef}/>
         </div>
-        <input type={"text"} placeholder={"Filter by location"} className={classes.searchBar__location}/>
+        <input type={"text"} placeholder={"Filter by location"} className={classes.searchBar__location} ref={locationRef}/>
         <div className={classes.searchBar__checkbox}>
-            <input type={"checkbox"}/>
+            <input type={"checkbox"} ref={fullTimeRef}/>
             <label>Full Time</label>
         </div>
         <div className={classes.buttonsContainer}>

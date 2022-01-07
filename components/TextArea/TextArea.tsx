@@ -10,6 +10,7 @@ const TextArea: React.FC<{
     onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
     onFocus?: (event: React.FocusEvent<HTMLTextAreaElement>) => void;
     onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => void;
+    textRef?: React.Ref<HTMLTextAreaElement>;
 }> = (props) => {
     const {
         label,
@@ -18,12 +19,13 @@ const TextArea: React.FC<{
         containerClasses = [],
         onFocus,
         onBlur,
-        onChange
+        onChange,
+        textRef
     } = props;
     return (
         <div className={CombineClasses(classes.container,...containerClasses)}>
             <label>{label}</label>
-            <textarea className={CombineClasses(classes.textArea,...classesFromProps)} placeholder={placeholder} onFocus={onFocus} onBlur={onBlur} onChange={onChange}/>
+            <textarea className={CombineClasses(classes.textArea,...classesFromProps)} placeholder={placeholder} onFocus={onFocus} onBlur={onBlur} onChange={onChange} ref={textRef}/>
         </div>
     );
 };

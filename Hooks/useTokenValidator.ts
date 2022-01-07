@@ -7,6 +7,9 @@ const UseTokenValidator = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         const token = localStorage.getItem('token');
+        if(!token) {
+            return
+        }
         const isEmployerString = localStorage.getItem('isEmployer');
         const isEmployer = parseStringToBoolean(isEmployerString ? isEmployerString : "");
         let url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/applicant/auth/validateToken`;

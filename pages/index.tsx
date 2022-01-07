@@ -12,13 +12,12 @@ const Home: NextPage = () => {
     useShowSearch();
     useTokenValidator();
     const isEmployer = useSelector<RootState>(state => state.authReducer.isEmployer);
-    console.log(isEmployer);
     const router = useRouter();
     useEffect(() => {
         if (isEmployer) {
             router.replace('/employer/jobs');
         }
-    }, [isEmployer,router]);
+    }, []);
     return (
         <div className={classes.HomeContainer}>
             <Jobs/>
